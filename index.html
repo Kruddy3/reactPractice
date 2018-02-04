@@ -42,7 +42,7 @@
   //   document.getElementById('root')
   // )
 -->
-  <style>
+  <!-- <style>
 .box {
   border: 1px solid #333;
 }
@@ -107,3 +107,42 @@ ReactDOM.render(
   document.getElementById('root')
 )
 </script>
+-->
+<script type="text/babel">
+const state = {eventCount: 0, username: ''}
+function App() {
+  return (
+    <div>
+      <p>
+        There have been {state.eventCount} events
+      </p>
+      <p>
+        <button onClick={() =>   setState({
+            eventCount: state.eventCount + 1,
+          })}>Button</button>
+      </p>
+      <p>You typed: {state.username}</p>
+      <p>
+        <input onChange={updateUsername} />
+      </p>
+    </div>
+  )
+}
+function updateUsername(event) {
+  setState({
+    username: event.target.value,
+  })
+}
+function setState(newState) {
+  Object.assign(state, newState)
+  renderApp()
+}
+function renderApp() {
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root'),
+  )
+}
+renderApp()
+</script>
+</body>
