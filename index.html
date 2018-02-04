@@ -109,7 +109,7 @@ ReactDOM.render(
 </script>
 -->
 <script type="text/babel">
-const state = {eventCount: 0, username: ''}
+const state = {word: 20, eventCount: 0, username: ''}
 function App() {
   return (
     <div>
@@ -121,7 +121,7 @@ function App() {
             eventCount: state.eventCount + 1,
           })}>Button</button>
       </p>
-      <p>You typed: {state.username}</p>
+      <p>You typed: {state.word}</p>
       <p>
         <input onChange={updateUsername} />
       </p>
@@ -130,7 +130,7 @@ function App() {
 }
 function updateUsername(event) {
   setState({
-    username: event.target.value,
+    word: event.target.value,
   })
 }
 function setState(newState) {
